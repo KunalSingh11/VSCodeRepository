@@ -29,3 +29,13 @@ Write a Schedulable Apex class that:
 Finds all Leads where OwnerId is null.
 Assigns them to John Doe.
 Schedule the job to run every day at midnight (0 0 0 * * ?).
+
+🛠 Bonus Challenge: Chain Queueable Jobs
+Scenario:
+Step 1: Find all high-revenue Accounts (AnnualRevenue > 1M).
+Step 2: For each Account, find and update all related Opportunities to "Under Review".
+Step 3: Send an email notification to the Account Owner about the change.
+🛠 Task:
+Chain multiple Queueable jobs to complete this process.
+Ensure jobs don’t run recursively.
+Use limits efficiently (Bulk SOQL + DML).
