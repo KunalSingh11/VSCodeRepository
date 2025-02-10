@@ -1,18 +1,41 @@
-# Salesforce DX Project: Next Steps
+Some Challenges...
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+📝 Challenge 1: Queueable Apex - Update High-Value Opportunities
+Scenario:
+Your company wants to automatically update Opportunities with an Amount greater than $500,000 and set the StageName to "Executive Review".
 
-## How Do You Plan to Deploy Your Changes?
+🛠 Task:
+Write a Queueable Apex class to find all Opportunities where Amount > 500000.
+Update their StageName to "Executive Review".
+Execute the Queueable job using System.enqueueJob().
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+📝 Challenge 2: Batch Apex - Archive Old Cases
+Scenario:
+Support wants to archive all closed Cases older than 2 years by setting IsArchived__c = true.
 
-## Configure Your Salesforce DX Project
+🛠 Task:
+Write a Batch Apex class that:
+Retrieves Cases older than 2 years.
+Updates IsArchived__c = true.
+Execute the batch job with a batch size of 200 records per batch.
+Log the number of records processed in finish().
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+ Challenge 3: Scheduled Apex - Auto-Assign Leads
+Scenario:
+Sales wants a scheduled job to run daily at midnight and assign unassigned Leads to a default Sales Rep (Assigned_To__c = 'John Doe').
 
-## Read All About It
+🛠 Task:
+Write a Schedulable Apex class that:
+Finds all Leads where OwnerId is null.
+Assigns them to John Doe.
+Schedule the job to run every day at midnight (0 0 0 * * ?).
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+🛠 Bonus Challenge: Chain Queueable Jobs
+Scenario:
+Step 1: Find all high-revenue Accounts (AnnualRevenue > 1M).
+Step 2: For each Account, find and update all related Opportunities to "Under Review".
+Step 3: Send an email notification to the Account Owner about the change.
+🛠 Task:
+Chain multiple Queueable jobs to complete this process.
+Ensure jobs don’t run recursively.
+Use limits efficiently (Bulk SOQL + DML).
