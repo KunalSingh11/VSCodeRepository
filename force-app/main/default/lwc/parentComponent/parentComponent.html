@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Parent Component" icon-name="utility:download" class="slds-align_absolute-center">
+        <div class="slds-align_absolute-center">
+            <p>{displayText}</p>
+        </div>
+        <div class="slds-align_absolute-center">
+            <c-child-component onclickevent={clickHandler}></c-child-component>
+        </div>
+    </lightning-card>
+</template>
