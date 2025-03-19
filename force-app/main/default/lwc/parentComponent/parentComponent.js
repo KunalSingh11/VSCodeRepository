@@ -1,8 +1,9 @@
 import { LightningElement } from 'lwc';
 
 export default class ParentComponent extends LightningElement {
-    displayText = "No message recieved yet...";
-    clickHandler(event){
-        this.displayText = event.detail.message;
+    receivedMessage = '';
+
+    handleM(event) {
+        this.receivedMessage = event.detail.message;
     }
 }

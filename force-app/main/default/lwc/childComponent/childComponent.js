@@ -1,7 +1,15 @@
 import { LightningElement } from 'lwc';
 
 export default class ChildComponent extends LightningElement {
-    handleClick(){
-        this.dispatchEvent(new CustomEvent("clickevent", {detail:{message:"Hello from Child!"}}));
+    cvalue;
+
+    handleChange(event) {
+        this.cvalue = event.target.value;
+    }
+
+    handleMessage() {
+        this.dispatchEvent(new CustomEvent("sendingmessage", {
+            detail: { message: this.cvalue }
+        }));
     }
 }

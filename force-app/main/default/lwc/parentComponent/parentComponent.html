@@ -1,10 +1,10 @@
 <template>
-    <lightning-card title="Parent Component" icon-name="utility:download" class="slds-align_absolute-center">
+    <lightning-card title="Parent Component" icon-name="utility:download">
         <div class="slds-align_absolute-center">
-            <p>{displayText}</p>
+            <p>{receivedMessage}</p>
         </div>
         <div class="slds-align_absolute-center">
-            <c-child-component onclickevent={clickHandler}></c-child-component>
+            <c-child-component onsendingmessage={handleM}></c-child-component>
         </div>
     </lightning-card>
 </template>

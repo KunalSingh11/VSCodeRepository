@@ -1,7 +1,11 @@
 <template>
     <lightning-card title="Child Component" icon-name="utility:upload">
         <div class="slds-align_absolute-center">
-            <lightning-button label="Send Message" onclick={handleClick}></lightning-button>
+            <lightning-input label="Message to send" type="text" value={cvalue}
+                onchange={handleChange}></lightning-input>
+        </div>
+        <div class="slds-align_absolute-center">
+            <lightning-button label="Click Me!" onclick={handleMessage}></lightning-button>
         </div>
     </lightning-card>
 </template>
